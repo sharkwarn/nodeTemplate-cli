@@ -1,12 +1,6 @@
 import Express from 'express';
 
-
 global.app = Express();
-app.use(cookieParser());
-//使用post提交方式
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
 //静态文件资源
 
 app.use(Express.static('public'));
@@ -25,12 +19,8 @@ app.all('*', (req, res, next) => {
 	}
 });
 
-
-
-
-
 app.all('*',(req,res)=>{
-  res.sendStatus(404).send(`404 页面没有找到！！！`)
+  res.send(`404 页面没有找到！！！`)
 })
 
 
